@@ -80,7 +80,8 @@ do {
                     cout <<" Du logges nå ut..." << endl;
                     cout << "Sammenlagt alder: " <<ansatt1.alder + ansatt2.alder + ansatt3.alder << endl;
                     cout << " Gjennomsnittlig vekt: " <<(ansatt1.vekt + ansatt2.vekt + ansatt3.vekt) / 3 << endl;
-                    cout << "Ansatte som var tilstede: nr."<< ansatt1.ansattnummer << " nr."<< ansatt2.ansattnummer <<" nr."<< ansatt3.ansattnummer<< endl;
+                    cout << "Ansatte som var tilstede: nr."<< ansatt1.ansattnummer << " nr."<< ansatt2.ansattnummer <<" nr."
+                    << ansatt3.ansattnummer<< endl;
                 }
                     
             }
