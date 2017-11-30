@@ -1,0 +1,34 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    
+    
+    
+    void zerosmaller (int&, int&);
+    int a , b;
+  
+  
+     cout << "skriv inn første lengde" << endl;
+    cin >> a;
+    
+     cout << "skriv inn andre lengde" << endl;
+    cin >> b;
+  
+    
+      zerosmaller(a, b);
+    
+    if (a > b)
+        cout << "Første er lengst: " << a << "m" << endl;
+    else
+        cout << "Andre er lengst: " << b << "m" << endl;
+  
+    return 0;
+}
+
+void zerosmaller( int& first, int& second) {
+    if ( first < second)
+        first = 0;
+    else
+        second = 0;
+}
