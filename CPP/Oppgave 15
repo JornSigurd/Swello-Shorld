@@ -1,0 +1,89 @@
+//JSig
+//Oppgave 15
+
+#include <iostream>
+using namespace std;
+
+
+struct Ansatt
+{
+    int ansattnummer;
+    int alder;
+    int vekt;
+};
+
+int i;
+Ansatt ansatt1, ansatt2, ansatt3,
+Temp;
+char command;
+
+int main() {
+    
+    
+    for(int i=1; i <= 3; i++) {
+        cout << "ansatt " << i << " sitt jobbnummer:" << endl;
+        cin >> Temp.ansattnummer;
+        do {
+            cout << "alder til ansatt: " << i << endl;
+            cin >> Temp.alder;
+        } while (Temp.alder <= 13 || Temp.alder >= 70);
+        if (Temp.alder > 65) {
+            cout << "Du bør snart pensjonere deg" << endl;
+        }
+        
+        do {
+            cout << "Vekten til ansatt: " << i << endl;
+            cin >> Temp.vekt;
+        }while (Temp.vekt <= 35 || Temp.vekt >= 120);
+        
+        switch (i) {
+            case 1: ansatt1 = Temp; break;
+            case 2: ansatt2 = Temp; break;
+            case 3: ansatt3 = Temp; break;
+                
+        }
+    }
+    cout << endl << "Velg mellom A,B,C eller Q" << endl;
+    cout <<"[A) viser ansatt 1" << endl;
+    cout <<"[B) viser ansatt 2" << endl;
+    cout <<"[C) viser ansatt 3" << endl;
+    cout <<"[Q) Quit" << endl;
+    
+do {
+    do {
+        cin >> command;
+        command = toupper(command);
+    }while (command != 'A' && command != 'B' && command != 'C' && command != 'Q');
+            switch (command) {
+                    
+                case 'A': {
+                    cout << "Ansatt nummer: " << ansatt1.ansattnummer << endl;
+                    cout << "Alder: " << ansatt1.alder << "aar" << endl;
+                    cout << "Vekt: " << ansatt1.vekt << "kg" << endl;
+                } break;
+                    
+                    
+                case 'B': {
+                    cout << "Ansatt nummer: " << ansatt2.ansattnummer << endl;
+                    cout << "Alder: " << ansatt2.alder << "aar" << endl;
+                    cout << "Vekt: " << ansatt2.vekt << "kg" << endl;
+                } break;
+                    
+                    
+                case 'C': {
+                    cout << "Ansatt nummer: " << ansatt3.ansattnummer << endl;
+                    cout << "Alder: " << ansatt3.alder << "aar" <<endl;
+                    cout << "Vekt: " << ansatt3.vekt << "kg" << endl;
+                } break;
+                    
+                case 'Q': {
+                    cout <<" Du logges nå ut..." << endl;
+                    cout << "Sammenlagt alder: " <<ansatt1.alder + ansatt2.alder + ansatt3.alder << endl;
+                    cout << " Gjennomsnittlig vekt: " <<(ansatt1.vekt + ansatt2.vekt + ansatt3.vekt) / 3 << endl;
+                    cout << "Ansatte som var tilstede: nr."<< ansatt1.ansattnummer << " nr."<< ansatt2.ansattnummer <<" nr."<< ansatt3.ansattnummer<< endl;
+                }
+                    
+            }
+    }while (command != 'Q');
+return 0;
+}
