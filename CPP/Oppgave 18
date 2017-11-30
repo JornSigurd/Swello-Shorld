@@ -1,0 +1,125 @@
+#include <iostream>
+using namespace std;
+
+struct Vare
+{
+    float pris;
+    float totalsum;
+};
+
+Vare en, to, tre, pris1, pris2, pris3, temp;
+Vare sum;
+
+char command;
+char kommand;
+
+int i;
+
+int main() {
+    
+    cout << "Velkommen til butikken min" << endl;
+    cout << "[V) - Varekjop " << endl;
+    cout << "[A) - Angre " << endl;
+    cout << "[B) - Balanse " << endl;
+    cout << "[E) - Endre " << endl;
+    cout << "[S) - Gå Videre" << endl;
+    
+
+    
+    do {
+    
+    cin >> command;
+    
+    command = toupper(command);
+    switch (command) {
+       
+            
+         case 'V':
+        cout << "Hva koster varen?" << endl;
+           cin >> en.pris;
+            en.totalsum += en.pris;
+            cout << " Totalsum ATM: " << en.totalsum << endl;
+            
+            break;
+             
+            
+            
+        case 'A': //angreknappen
+            cout << "fjerner kjøpet på :" << en.pris << " fra totalsum" << endl;
+            do{
+            (en.totalsum -= en.pris);
+            }while ( en.totalsum > en.pris);
+            if (en.totalsum < 0) {
+                cout << "totalsum kan ikke være lavere enn 0";
+                (en.totalsum = 0);
+            }
+            cout << endl;
+            break;
+            
+        case 'E':     // spør om og leser inn et beløp, dersom beløp mellom 0 og totalsum trekkes det fra totalsum eller gir feilmelding.
+            do {
+            cout << "spør om et beløp" << endl;
+                cin >> to.pris;
+            }while (to.pris < 0 || to.pris > en.totalsum);
+            cout << "Trekker fra, ny sum: " << (en.totalsum -= to.pris) << endl;
+            break;
+            
+        case 'B':
+            if (en.totalsum < 0) {
+            (en.totalsum = 0);
+            }
+             cout << "Balansen er: " << en.totalsum << endl;
+            break;
+            
+                    }
+   
+        
+    }while ( command != 'S');               //Ender do-løkken
+    
+    cout << "Du har handlet for: " << en.totalsum << "kr" << endl;
+    
+    cout << "[B) - Betale" << endl;  //Hvor mye kunden betaler, VEKSLE KOMMANDO
+    cout << "[V) - Veksle tilbake " << endl;     //Hvor mye det er handlet for, summen av kundens kjøp.
+    cout << "[Q) - Endelig avslutt. " << endl;  // avsluttes og går til punkt 4
+    
+    
+    do{
+            //skriver ut hva kunden har handlet for, adderes til summen det er totalt handlet for av alle kundene siden programmet startet.
+        
+        cin >> kommand;
+        
+        kommand= toupper(kommand);
+        switch (kommand) {
+           
+            
+            case 'B':
+                cout << en.totalsum << "kr" << endl <<"  Hvor mye betaler kunden med?" << endl;
+                do{
+                cin >> tre.pris;
+                    if (tre.pris < en.totalsum)
+                        cout << "for lite" << endl;
+                }while(en.totalsum >= tre.pris);
+                
+                cout << en.totalsum << " - " << tre.pris << " = " << (tre.pris - en.totalsum) << endl;
+                (en.totalsum = tre.pris - en.totalsum);
+                
+                break;
+            
+           
+            case 'V':       //Lar seg kun aktivere etter kunden har betalt, [T]
+                
+                if (en.totalsum < tre.pris) {
+                    cout << "Du må gi " << en.totalsum << "kr til kunden" << endl;
+                    cout << "Kunden betalte: " << tre.pris << "kr" << endl;
+                }
+                
+                break;
+        }
+        
+        
+            } while (kommand != 'Q');
+    cout << "Endelig totalsum for alle varene er : "<< en.totalsum << "kr" << endl;
+    
+    return 0;
+    
+}
